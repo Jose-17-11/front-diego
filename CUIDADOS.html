@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta de Animales Exóticos</title>
+    <!-- Incluimos Bootstrap 5 para la funcionalidad del modal -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilos básicos para la página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        /* Estilos del menú de navegación */
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #1E1E1E;
+            padding: 10px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #ffcc00;
+        }
+
+        /* Estilos del contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Estilo del botón "comprar" */
+        .comprar-btn {
+            display: inline-block;
+            background-color: #005F40;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 20px 0;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* Estilos de las tarjetas de productos */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            text-align: left;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Efecto hover */
+        .product-card:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .product-card:hover img {
+            opacity: 0.8;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #B71C1C;
+            margin: 10px 0 5px;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .modal-body {
+            font-size: 16px;
+        }
+
+        /* Botón de ver más en el modal */
+        .btn-close {
+            background-color: #B71C1C;
+        }
+
+        /* Estilo para el texto que aparece en hover */
+        .hover-text {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            position: absolute;
+            bottom: 10px;
+            left: 15px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .product-card:hover .hover-text {
+            display: block;
+        }
+
+        /* Estilo del pie de página */
+        footer {
+            background-color: #1E1E1E;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú de navegación -->
+    <div class="navbar">
+        <a href="index.html">Inicio</a>
+        <a href="EMPRESA.html">Empresa</a>
+        <a href="CONTACTOS.html">Contactos</a>
+        <a href="PREGUNTAS.html">Preguntas Frecuentes</a>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Botón "comprar" principal -->
+        <a href="./compras.html" class="comprar-btn">Comprar</a>
+
+        <!-- Grid de productos -->
+        <div class="product-grid">
+            <!-- Tarjeta de producto - Ajolote -->
+            <div class="product-card" data-bs-toggle="modal" data-bs-target="#ajoloteModal">
+                <img src="./IMG/ajolote.jpg" alt="Ajolote">
+                <div class="product-title">AJOLOTE</div>
+                <div class="hover-text">Es carnívoro y se alimenta de animales más pequeños que él como peces, gusanos u otros insectos.</div>
+            </div>
+
+            <!-- Tarjeta de producto - Mono Tití -->
+            <div class="product-card" data-bs-toggle="modal" data-bs-target="#monoTitiModal">
+                <img src="./IMG/mono-titi.jpg" alt="Mono Tití">
+                <div class="product-title">MONO TITÍ</div>
+                <div class="hover-text">Monos más pequeños del mundo. Comen frutas, hojas, semillas, insectos, hongos, arábigas y savia de los árboles.</div>
+            </div>
+
+            <!-- Tarjeta de producto - Tigre -->
+            <div class="product-card" data-bs-toggle="modal" data-bs-target="#tigreModal">
+                <img src="./IMG/TIGRE.png" alt="Tigre">
+                <div class="product-title">TIGRE</div>
+                <div class="hover-text">Asegúrate de incluir carnes magras como pollo, ternera o pescado, así como frutas y verduras para proporcionar los nutrientes necesarios.</div>
+            </div>
+
+            <!-- Tarjeta de producto - Guacamaya Enana -->
+            <div class="product-card" data-bs-toggle="modal" data-bs-target="#guacamayaModal">
+                <img src="./IMG/perico.png" alt="Guacamaya Enana">
+                <div class="product-title">GUACAMAYA ENANA</div>
+                <div class="hover-text">Se alimentan prácticamente de semillas y nueces.</div>
+            </div>
+
+            <!-- Tarjeta de producto - Camaleón de Velo -->
+            <div class="product-card" data-bs-toggle="modal" data-bs-target="#camaleonModal">
+                <img src="./IMG/camaleon.png" alt="Camaleón de Velo">
+                <div class="product-title">CAMALEÓN DE VELO</div>
+                <div class="hover-text">Debe ser variada y equilibrada, y se basa principalmente en insectos.</div>
+            </div>
+
+            <!-- Tarjeta de producto - Petauro -->
+            <div class="product-card" data-bs-toggle="modal" data-bs-target="#petauroModal">
+                <img src="./IMG/petauro.png" alt="Petauro">
+                <div class="product-title">PETAURO</div>
+                <div class="hover-text">Son muy sociales. Su dieta incluye frutas, verduras frescas y proteína.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 EXOTIC.MX. Todos los derechos reservados.</p>
+        <p>
+            Dirección: Calle Ejemplo 123, Ciudad de México, CDMX, México<br>
+            Teléfono: +52 55 1234 5678 | Correo: contacto@exotic.mx
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

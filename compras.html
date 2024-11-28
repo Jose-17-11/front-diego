@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta de Animales Exóticos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilos básicos para la página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        /* Estilos del menú de navegación */
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #1E1E1E;
+            padding: 10px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #ffcc00;
+        }
+
+        /* Estilos de las tarjetas de productos */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 10px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .product-price {
+            background-color: #005F40;
+            color: white;
+            padding: 8px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .product-price:hover {
+            background-color: #004731;
+        }
+
+        /* Estilos para el pie de página */
+        footer {
+            background-color: #1E1E1E;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <div class="navbar">
+        <a href="index.html">Inicio</a>
+        <a href="CUIDADOS.html">Cuidados</a>
+        <a href="EMPRESA.html">Empresa</a>
+        <a href="CONTACTOS.html">Contactos</a>
+        <a href="PREGUNTAS.html">Preguntas Frecuentes</a>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="container mt-5">
+        <div class="product-grid">
+            <!-- Tarjeta de producto con enlace a formulario -->
+            <div class="product-card">
+                <a href="formulario.html" class="d-block text-decoration-none">
+                    <img src="./IMG/ajolote.jpg" alt="Ajolote">
+                    <div class="product-price">$3,000</div>
+                </a>
+            </div>
+            <div class="product-card">
+                <a href="formulario.html" class="d-block text-decoration-none">
+                    <img src="./IMG/mono-titi.jpg" alt="Mono Tití">
+                    <div class="product-price">$45,000</div>
+                </a>
+            </div>
+            <div class="product-card">
+                <a href="formulario.html" class="d-block text-decoration-none">
+                    <img src="./IMG/TIGRE.png" alt="Tigre de Bengala">
+                    <div class="product-price">$200,000</div>
+                </a>
+            </div>
+            <div class="product-card">
+                <a href="formulario.html" class="d-block text-decoration-none">
+                    <img src="./IMG/perico.png" alt="Loro">
+                    <div class="product-price">$1,000</div>
+                </a>
+            </div>
+            <div class="product-card">
+                <a href="formulario.html" class="d-block text-decoration-none">
+                    <img src="./IMG/camaleon.png" alt="Camaleón">
+                    <div class="product-price">$800</div>
+                </a>
+            </div>
+            <div class="product-card">
+                <a href="formulario.html" class="d-block text-decoration-none">
+                    <img src="./IMG/petauro.png" alt="Petauro del Azúcar">
+                    <div class="product-price">$70,000</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 EXOTIC.MX. Todos los derechos reservados.</p>
+        <p>
+            Dirección: Calle Ejemplo 123, Ciudad de México, CDMX, México<br>
+            Teléfono: +52 55 1234 5678 | Correo: contacto@exotic.mx
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes</title>
+    <!-- Vinculamos Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .navbar {
+            background-color: #3d5a3c;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar-nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar a {
+            color: #f4f4f9;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .navbar a:hover {
+            color: #f39c12;
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .faq-section {
+            width: 48%;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-section h2 {
+            font-size: 1.8rem;
+            color: #34495e;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            background-color: #ecf0f1;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .question:hover {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .answer {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-top: 5px;
+            border-radius: 8px;
+            display: none;
+            font-size: 1rem;
+        }
+
+        .answer.show {
+            display: block;
+        }
+
+        /* Estilo del carrusel */
+        .carousel-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .animal-info h5 {
+            margin-top: 10px;
+            font-size: 1.3rem;
+            color: #34495e;
+        }
+
+        .animal-info p {
+            font-size: 1rem;
+            color: #7f8c8d;
+        }
+
+        /* Estilo del footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="navbar-nav">
+            <a href="PRINCIPAL.html" class="nav-link">Inicio</a>
+            <a href="CUIDADOS.html" class="nav-link">Cuidados</a>
+            <a href="EMPRESA.html" class="nav-link">Empresa</a>
+            <a href="CONTACTOS.html" class="nav-link">Contactos</a>
+        
+        </div>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Sección de Preguntas Frecuentes -->
+        <div class="faq-section">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq">
+                <div class="question" onclick="toggleAnswer(0)">¿Es legal tener este animal en mi país/estado?</div>
+                <div class="answer">Las leyes sobre la tenencia de animales exóticos varían en función del país, estado o municipio. Es importante investigar las leyes locales antes de adquirir uno.</div>
+            </div>
+            <div class="faq">
+                <div class="question" onclick="toggleAnswer(1)">¿Qué permisos o licencias necesito?</div>
+                <div class="answer">En algunos lugares, es necesario obtener permisos especiales para tener animales exóticos. Estos permisos suelen estar regulados por agencias gubernamentales de vida silvestre o medio ambiente.</div>
+            </div>
+        </div>
+
+        <!-- Carrusel de Animales -->
+        <div class="faq-section">
+            <h2>Galería de Animales</h2>
+
+            <!-- Carrusel de Bootstrap -->
+            <div id="animalCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Primer Item: Ajolote -->
+                    <div class="carousel-item active">
+                        <img src="./IMG/ajolote.jpg" class="d-block w-100" alt="Ajolote">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Ajolote</h5>
+                            <p>Este peculiar animal acuático es conocido por su capacidad para regenerar extremidades, órganos y partes de su cerebro. Vive en aguas dulces de México y es una especie en peligro de extinción.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Animales Exóticos | <a href="PRINCIPAL.html">Inicio</a> | <a href="CONTACTOS.html">Contáctanos</a></p>
+    </footer>
+
+    <!-- Script para mostrar respuestas -->
+    <script>
+        function toggleAnswer(index) {
+            const answers = document.querySelectorAll('.answer');
+            const selectedAnswer = answers[index];
+            selectedAnswer.classList.toggle('show');
+        }
+    </script>
+
+    <!-- Vinculamos Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

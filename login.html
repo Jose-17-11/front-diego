@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login y Registro - Exotic.MX</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/IMG/fondo_animales.jpg'); /* Imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background: rgba(0, 0, 0, 0.8); /* Fondo con transparencia */
+            padding: 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 400px;
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1 { font-size: 28px; margin-bottom: 20px; text-align: center; color: #ffcc00; }
+        .btn { background-color: #ffcc00; color: #000; border: none; border-radius: 10px; font-weight: bold; padding: 10px 15px; width: 100%; transition: all 0.3s; }
+        .btn:hover { background-color: #ffa500; transform: scale(1.05); }
+
+        .form-footer a { color: #ffcc00; text-decoration: none; font-weight: bold; }
+        .form-footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>Bienvenido a Exotic.MX</h1>
+        <p>Completa el formulario para registrarte o iniciar sesión</p>
+    
+        <form id="registroForm">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="apellido" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingresa tus apellidos" required>
+            </div>
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingresa tu correo" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Crea una contraseña" required>
+            </div>
+            <button type="submit" class="btn">Registrarse / Iniciar Sesión</button>
+        </form>
+    </div>
+    
+    <script>
+        // Seleccionar el formulario
+        const form = document.getElementById('registroForm');
+    
+        // Evento submit del formulario
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevenir el envío del formulario
+    
+            // Obtener los valores del formulario
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            const correo = document.getElementById('correo').value;
+            const password = document.getElementById('password').value;
+    
+            // Recuperar los datos existentes en LocalStorage
+            const storedData = localStorage.getItem('usersCollection');
+            let usersArray = storedData ? JSON.parse(storedData) : [];
+    
+            // Buscar si el correo ya existe
+            const existingUser = usersArray.find(user => user.correo === correo);
+    
+            if (existingUser) {
+                // Si el correo existe, loguear y redirigir a index.html
+                alert(`¡Bienvenido de nuevo, ${existingUser.nombre}!`);
+                window.location.href = 'index.html'; // Redirigir a index.html
+            } else {
+                // Si no existe, registrar al nuevo usuario
+                const newUser = {
+                    nombre,
+                    apellido,
+                    correo,
+                    password
+                };
+    
+                // Agregar el nuevo usuario al array
+                usersArray.push(newUser);
+    
+                // Guardar el array actualizado en LocalStorage
+                localStorage.setItem('usersCollection', JSON.stringify(usersArray));
+    
+                alert('Registro exitoso. Ahora puedes iniciar sesión.');
+            }
+    
+            // Limpiar el formulario
+            form.reset();
+        });
+    </script>        
+</body>
+</html>
